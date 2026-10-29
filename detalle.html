@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalle del producto</title>
+  <style>
+    body {
+      margin: 0;
+      background: #f5deb3;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .detalle {
+      background: #fffaf0;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      padding: 30px;
+      max-width: 700px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .detalle img {
+      width: min(80vw, 500px);
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+      display: block;
+      margin: 0 auto 20px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 2rem;
+      color: #333;
+    }
+
+    p {
+      margin: 0;
+      color: #555;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="detalle">
+    <img id="detalle-imagen" src="" alt="Producto" />
+    <h1 id="detalle-titulo">Producto</h1>
+    <p>Vista ampliada del producto seleccionado.</p>
+  </div>
+
+  <script>
+    const productos = {
+      imagen1: { nombre: 'Conchas', imagen: 'imagen1.png' },
+      imagen2: { nombre: 'Graduación', imagen: 'imagen2.png' },
+      muñequeras: { nombre: 'Pulseras y relojes', imagen: 'muñequeras.png' },
+      collares2: { nombre: 'Collares', imagen: 'Collares2.png' },
+      collares3: { nombre: 'Collares de corazon', imagen: 'collares3.png' },
+      anillos: { nombre: 'Anillos', imagen: 'anillos.png' },
+      aretes: { nombre: 'Aretes', imagen: 'aretes.png' },
+      aretes2: { nombre: 'Aretes', imagen: 'aretes2.png' },
+      collares4: { nombre: 'Collares', imagen: 'collares4.png' },
+      pulseras: { nombre: 'Pulseras', imagen: 'pulseras.png' },
+      relojes: { nombre: 'Relojes', imagen: 'Relojes.png' },
+      collar-bailarina: { nombre: 'Collar Bailarina', imagen: 'collar-bailarina.png' },
+      collar-love: { nombre: 'Collar Love', imagen: 'collar-love.png' },
+      pulseras2: { nombre: 'Pulseras', imagen: 'pulseras2.png' },
+      anillos-ojos: { nombre: 'Anillos', imagen: 'anillos-ojos.png' }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const productoKey = params.get('producto') || 'imagen1';
+    const producto = productos[productoKey] || productos.imagen1;
+
+    const imagen = document.getElementById('detalle-imagen');
+    const titulo = document.getElementById('detalle-titulo');
+
+    imagen.src = producto.imagen;
+    imagen.alt = producto.nombre;
+    titulo.textContent = producto.nombre;
+  </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    background-color: wheat;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+}
+
+.contenedor-h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 20vh;
+    padding-top: 40px;
+}
+
+.productos {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.producto1,
+.producto2,
+.producto3,
+.producto4,
+.producto5,
+.producto6,
+.producto7,
+.producto8,
+.producto9,
+.producto10,
+.producto11,
+.producto12,
+.producto13,
+.producto14,
+.producto15 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+}
+
+.producto1:hover,
+.producto2:hover,
+.producto3:hover,
+.producto4:hover,
+.producto5:hover,
+.producto6:hover,
+.producto7:hover,
+.producto8:hover,
+.producto9:hover,
+.producto10:hover,
+.producto11:hover,
+.producto12:hover,
+.producto13:hover,
+.producto14:hover,
+.producto15:hover {
+    transform: translateY(-6px) scale(1.02);
+}
+
+.producto1 img,
+.producto2 img,
+.producto3 img,
+.producto4 img,
+.producto5 img,
+.producto6 img,
+.producto7 img,
+.producto8 img,
+.producto9 img,
+.producto10 img,
+.producto11 img,
+.producto12 img,
+.producto13 img,
+.producto14 img,
+.producto15 img {
+    width: 250px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.producto1:hover img,
+.producto2:hover img,
+.producto3:hover img,
+.producto4:hover img,
+.producto5:hover img,
+.producto6:hover img,
+.producto7:hover img,
+.producto8:hover img,
+.producto9:hover img,
+.producto10:hover img,
+.producto11:hover img,
+.producto12:hover img,
+.producto13:hover img,
+.producto14:hover img,
+.producto15:hover img {
+    transform: scale(1.03);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+}
+
+.producto1 h1,
+.producto2 h2,
+.producto3 h3,
+.producto4 h4,
+.producto5 h5,
+.producto6 h6,
+.producto7 h7,
+.producto8 h8,
+.producto9 h9,
+.producto10 h10,
+.producto11 h11,
+.producto12 h12,
+.producto13 h13,
+.producto14 h14,
+.producto15 h15 {
+    margin: 0;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    text-align: center;
+    font-weight: normal;
+}
