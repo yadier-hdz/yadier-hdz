@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +7,101 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <details class="menu-navegacion">
+        <summary aria-label="Abrir menú de navegación">
+            <span></span>
+            <span></span>
+            <span></span>
+        </summary>
+        <nav class="menu-opciones" aria-label="Menú principal">
+            <a href="#inicio-sesion" id="abrir-inicio-sesion">Inicio de sesión</a>
+            <a href="#mi-carrito" id="abrir-carrito">
+                <svg class="icono-carrito" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 8h12l1 13H5L6 8Z"></path>
+                    <path d="M9 8a3 3 0 0 1 6 0"></path>
+                </svg>
+                Mi carrito <span class="contador-carrito" id="contador-carrito" aria-label="Productos en el carrito">0</span>
+            </a>
+            <a href="#lo-mas-nuevo">Lo más nuevo</a>
+            <a href="#lo-mas-vendido">Lo más vendido</a>
+        </nav>
+    </details>
+
+    <dialog class="dialogo-cuenta" id="dialogo-cuenta" aria-labelledby="titulo-cuenta">
+        <button class="cerrar-dialogo" type="button" aria-label="Cerrar">×</button>
+
+        <section data-vista-cuenta="inicio">
+            <h2 id="titulo-cuenta">Iniciar sesión</h2>
+            <form data-formulario-cuenta="inicio">
+                <label for="correo-inicio">Correo electrónico</label>
+                <input id="correo-inicio" name="correo" type="email" autocomplete="email" required>
+
+                <label for="usuario-inicio">Usuario</label>
+                <input id="usuario-inicio" name="usuario" type="text" autocomplete="username" required>
+
+                <label for="contrasena-inicio">Contraseña</label>
+                <input id="contrasena-inicio" name="contrasena" type="password" autocomplete="current-password" required>
+
+                <button class="boton-cuenta" type="submit">Iniciar sesión</button>
+                <p class="mensaje-cuenta" aria-live="polite"></p>
+            </form>
+            <button class="enlace-cuenta" type="button" data-mostrar-vista="recuperacion">¿Olvidaste tu contraseña?</button>
+            <p class="texto-registro">¿No tienes cuenta?</p>
+            <button class="enlace-cuenta" type="button" data-mostrar-vista="registro">Únete a la cuenta de los mejores accesorios</button>
+        </section>
+
+        <section data-vista-cuenta="registro" hidden>
+            <h2>Únete a Lira accesorios</h2>
+            <form data-formulario-cuenta="registro">
+                <label for="correo-registro">Correo electrónico</label>
+                <input id="correo-registro" name="correo" type="email" autocomplete="email" required>
+
+                <label for="usuario-registro">Usuario</label>
+                <input id="usuario-registro" name="usuario" type="text" autocomplete="username" required>
+
+                <label for="contrasena-registro">Contraseña</label>
+                <input id="contrasena-registro" name="contrasena" type="password" autocomplete="new-password" minlength="8" required>
+
+                <button class="boton-cuenta" type="submit">Crear cuenta</button>
+                <p class="mensaje-cuenta" aria-live="polite"></p>
+            </form>
+            <button class="enlace-cuenta" type="button" data-mostrar-vista="inicio">Volver a iniciar sesión</button>
+        </section>
+
+        <section data-vista-cuenta="recuperacion" hidden>
+            <h2>Recuperar contraseña</h2>
+            <form data-formulario-cuenta="recuperacion">
+                <label for="correo-recuperacion">Correo electrónico</label>
+                <input id="correo-recuperacion" name="correo" type="email" autocomplete="email" required>
+
+                <button class="boton-cuenta" type="submit">Solicitar recuperación</button>
+                <p class="mensaje-cuenta" aria-live="polite"></p>
+            </form>
+            <button class="enlace-cuenta" type="button" data-mostrar-vista="inicio">Volver a iniciar sesión</button>
+        </section>
+    </dialog>
+
+    <dialog class="dialogo-producto" id="dialogo-producto" aria-labelledby="nombre-producto">
+        <button class="cerrar-dialogo" type="button" aria-label="Cerrar">×</button>
+        <img class="imagen-producto-ampliada" id="imagen-producto-ampliada" alt="">
+        <h2 id="nombre-producto"></h2>
+        <button class="boton-cuenta" id="agregar-al-carrito" type="button">Agregar al carrito</button>
+        <p class="mensaje-carrito" id="mensaje-producto" aria-live="polite"></p>
+    </dialog>
+
+    <dialog class="dialogo-carrito" id="dialogo-carrito" aria-labelledby="titulo-carrito">
+        <button class="cerrar-dialogo" type="button" aria-label="Cerrar">×</button>
+        <h2 id="titulo-carrito">Mi carrito</h2>
+        <p class="aviso-almacenamiento" id="aviso-almacenamiento" aria-live="polite"></p>
+        <div class="lista-carrito" id="lista-carrito"></div>
+    </dialog>
+
+    <div class="Logo">
+        <img src="LogoPrimero.jpg" alt="Logo de la empresa" />
+    </div>
+
     <div class="contenedor-h1">
-    <h1>Bienvenido a Lira accesorios</h1>
+        <h1>Bienvenido a Lira accesorios</h1>
     </div>
 
     <div class="productos">

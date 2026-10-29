@@ -1,6 +1,9 @@
 body {
     margin: 0;
     background-color: wheat;
+    background-image: url("flores-fondo.svg");
+    background-repeat: repeat;
+    background-size: 260px 260px;
     font-family: Arial, sans-serif;
 }
 
@@ -9,12 +12,289 @@ h1 {
     text-align: center;
 }
 
+.menu-navegacion {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+}
+
+.menu-navegacion summary {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+    cursor: pointer;
+    list-style: none;
+}
+
+.menu-navegacion summary::-webkit-details-marker {
+    display: none;
+}
+
+.menu-navegacion summary span {
+    width: 20px;
+    height: 2px;
+    background-color: #333;
+}
+
+.menu-opciones {
+    position: absolute;
+    top: 52px;
+    right: 0;
+    display: flex;
+    min-width: 190px;
+    flex-direction: column;
+    padding: 8px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.menu-opciones a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 6px;
+    color: #333;
+    text-decoration: none;
+}
+
+.menu-opciones a:hover,
+.menu-opciones a:focus-visible {
+    background-color: wheat;
+}
+
+.icono-carrito {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+}
+
+.contador-carrito {
+    display: inline-flex;
+    min-width: 20px;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    border-radius: 10px;
+    background-color: #704b34;
+    color: white;
+    font-size: 12px;
+}
+
+.dialogo-producto,
+.dialogo-carrito {
+    width: min(520px, calc(100% - 40px));
+    max-height: calc(100% - 40px);
+    box-sizing: border-box;
+    padding: 32px;
+    border: 0;
+    border-radius: 14px;
+    color: #333;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.dialogo-producto::backdrop,
+.dialogo-carrito::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialogo-producto h2,
+.dialogo-carrito h2 {
+    margin: 16px 32px 20px 0;
+    text-align: center;
+}
+
+.imagen-producto-ampliada {
+    display: block;
+    width: 100%;
+    max-height: 55vh;
+    border-radius: 10px;
+    object-fit: contain;
+}
+
+.dialogo-producto .boton-cuenta {
+    width: 100%;
+}
+
+.mensaje-carrito,
+.aviso-almacenamiento {
+    margin: 12px 0 0;
+    color: #704b34;
+    font-size: 14px;
+}
+
+.lista-carrito {
+    display: flex;
+    max-height: 60vh;
+    flex-direction: column;
+    gap: 14px;
+    overflow-y: auto;
+}
+
+.carrito-vacio {
+    text-align: center;
+}
+
+.producto-en-carrito {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #e6ddce;
+}
+
+.producto-en-carrito img {
+    width: 72px;
+    height: 72px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.producto-en-carrito h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+}
+
+.controles-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.controles-cantidad button {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #c9c1b2;
+    border-radius: 6px;
+    background: white;
+    color: #333;
+    font: inherit;
+    cursor: pointer;
+}
+
+.quitar-producto {
+    border: 0 !important;
+    color: #8b3d3d !important;
+}
+
+.dialogo-cuenta {
+    width: min(420px, calc(100% - 40px));
+    max-height: calc(100% - 40px);
+    padding: 32px;
+    border: 0;
+    border-radius: 14px;
+    color: #333;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.dialogo-cuenta::backdrop {
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.dialogo-cuenta h2 {
+    margin: 0 32px 24px 0;
+    text-align: center;
+}
+
+.cerrar-dialogo {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    border: 0;
+    background: transparent;
+    color: #555;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.dialogo-cuenta form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dialogo-cuenta label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.dialogo-cuenta input {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+    padding: 11px 12px;
+    border: 1px solid #c9c1b2;
+    border-radius: 7px;
+    font: inherit;
+}
+
+.boton-cuenta {
+    padding: 12px;
+    border: 0;
+    border-radius: 7px;
+    background-color: #704b34;
+    color: white;
+    font: inherit;
+    cursor: pointer;
+}
+
+.boton-cuenta:hover {
+    background-color: #563923;
+}
+
+.enlace-cuenta {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #704b34;
+    font: inherit;
+    text-align: left;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.texto-registro {
+    margin: 20px 0 6px;
+}
+
+.mensaje-cuenta {
+    margin: 0;
+    font-size: 14px;
+}
+
+.Logo {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.Logo img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 .contenedor-h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 20vh;
-    padding-top: 40px;
+    padding: 20px 20px 0;
 }
 
 .productos {
